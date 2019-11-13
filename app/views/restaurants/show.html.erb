@@ -5,14 +5,24 @@
 <p><%= @restaurant.address %></p>
 <p><%= @restaurant.phone_number %></p>
 
-<h2>Reviews</h2>
+<h2>Reviews (Average rating: <%= '⭐️'*@average_review %>)</h2>
   <% @restaurant.reviews.each do |review|%>
     <div class="review">
-      <p> <%= review.content %> </p>
-      <p> <%= review.rating %> stars</p>
+      <p> <%= review.content %> <span> <%= '⭐️'*review.rating %> </span> </p>
     </div>
   <% end %>
 
-<%= link_to 'All restaurants', restaurants_path, class: 'btn btn-primary' %>
-<%= link_to 'Add a review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
+<h3>Add your review for <%= @restaurant.name %></h3 >
+
+<%= simple_form_for([@restaurant, @review]) do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating, hint: 'give a rating between 0-5' %>
+  <%= f.button :submit, class: 'btn btn-success' %>
+<% end %>
+
+<br>
+<br>
+
+<div> <%= link_to 'All restaurants', restaurants_path, class: 'btn btn-primary' %> </div>
+
 </div>
