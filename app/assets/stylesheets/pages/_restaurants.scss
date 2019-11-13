@@ -1,0 +1,50 @@
+// Place all the styles related to the restaurants controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.restaurant-card {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 16px 16px;
+  align-items: center;
+
+};
+
+.restaurant-name {
+    color: black;
+  };
+
+.restaurant-name:hover, .review-empty {
+  color: grey;
+}
+
+.reviews-card {
+  background-color: white;
+  padding: 16px;
+  margin: 20px 0px;
+}
+
+.review {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 10px;
+  margin: 10px 0px;
+  p {
+    margin: 0;
+  };
+}
+
+.review-title {
+  display: flex;
+  justify-content: space-between,
+}
+
+.add-reviews {
+  background-color: rgb(160, 225, 232);
+  padding: 10px;
+  margin: 10px 0px;
+
+}

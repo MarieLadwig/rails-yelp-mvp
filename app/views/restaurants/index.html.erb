@@ -1,10 +1,16 @@
 <div class="container">
 <h1>All restaurants</h1>
 
-<ul>
   <% @restaurants.each do |restaurant| %>
-    <li> <%= link_to restaurant.name, restaurant_path(restaurant)  %> </li>
+    <div class='restaurant-card'>
+        <%= link_to restaurant.name, restaurant_path(restaurant), class: "restaurant-name"  %>
+      <% if restaurant.average_review.nil? %>
+        <div class="review-empty"> No ratings</div>
+      <% else %>
+        <div class="review"> <%= '★'  * restaurant.average_review %></div>
+      <% end %>
+    </div>
   <% end %>
-</ul>
 
+  <%= link_to "Add a restaurant", new_restaurant_path  %>
 </div>

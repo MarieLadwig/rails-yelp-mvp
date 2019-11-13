@@ -6,8 +6,8 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @review = Review.new
-    @average_review = @restaurant.reviews.average(:rating)
-    @average_review = 0 if @average_review.nil?
+    @average_review = @restaurant.average_review
+    @count_reviews = @restaurant.count_reviews
   end
 
   def new
@@ -16,6 +16,7 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @average_review = @restaurant.average_review
     if @restaurant.save
       redirect_to restaurant_path(@restaurant)
     else
