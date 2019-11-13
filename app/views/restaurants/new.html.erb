@@ -1,0 +1,13 @@
+<div class="container">
+
+<h1>Add your restaurant here</h1>
+
+<%= simple_form_for(@restaurant) do |f| %>
+    <%= f.input :name, placeholder: 'Noma' %>
+    <%= f.input :address, placeholder: 'Drury Lane 5, London' %>
+    <%= f.input :category, collection: Restaurant::CATEGORIES %>
+    <%= f.input :phone_number, placeholder: '+49 173 327399'%>
+    <%= f.button :submit %>
+<% end %>
+
+</div>
